@@ -5,14 +5,10 @@ const LoginForm = () => {
     const [prenom, setPrenom] = useState("")
 
     const HanddleSubmit = (event) => {
-    const nom = "Bonjour " + prenom;
+        event.preventDefault();
 
-    if (prenom != "") {
-        alert(nom)
-        setPrenom("")
-        }
-
-  
+        alert(`Bonjour ${prenom}`)
+        setPrenom("") 
     }
 
     const HanddleChange = (event) => {
@@ -22,9 +18,9 @@ const LoginForm = () => {
 
     return (
         <div>
-            <form type="submit">
+            <form type="submit" onSubmit={HanddleSubmit}>
                 <input type="text"  value={prenom} placeholder='Entrez votre prénom...' onChange={HanddleChange} required/>
-                <button type='submit'  onClick={HanddleSubmit} >Accéder à votre espace</button>
+                <button type='submit'   >Accéder à votre espace</button>
             </form>
         </div>
     );
