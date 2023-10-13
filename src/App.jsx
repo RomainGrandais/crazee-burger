@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LoginForm from './components/LoginForm'
+import LoginPage from './components/pages/LoginPage'
 
 function App() {
 
@@ -7,10 +7,7 @@ function App() {
 
   return (
        <div>
-        <h1>bienvenue chez nous !</h1>
-        <br />
-        <h2>Connectez vous</h2>
-        <LoginForm />
+        <LoginPage />
        </div>
   )
 }
