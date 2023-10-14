@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginPage from "./components/pages/login/LoginPage";
 import { Route, Routes } from "react-router-dom";
 import OrderPage from "./components/pages/Order/OrderPage";
-import NotFoundPage from "./components/pages/Error/NotFoundPage";
+import NotFoundPage from "./components/pages/Error/ErrorPage";
 
 function App() {
   return (
