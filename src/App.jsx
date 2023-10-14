@@ -9,7 +9,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" Component={LoginPage} />
-        <Route path="/order/:id" Component={OrderPage} />
+        <Route path="/order/:username" Component={OrderPage} />
         <Route path="/*" Component={NotFoundPage} />
       </Routes>
     </div>
