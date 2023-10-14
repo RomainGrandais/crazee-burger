@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [prenom, setPrenom] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    navigate(`/order/${prenom}`);
     setPrenom("");
   };
 
@@ -23,9 +25,7 @@ const LoginForm = () => {
           onChange={handleChange}
           required
         />
-        <Link to={`/order/${prenom}`}>
-          <button type="submit">Accéder à votre espace</button>
-        </Link>
+        <button type="submit">Accéder à votre espace</button>
       </form>
     </div>
   );
