@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [prenom, setPrenom] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    alert(`Bonjour ${prenom}`);
     setPrenom("");
   };
 
@@ -24,7 +23,9 @@ const LoginForm = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Accéder à votre espace</button>
+        <Link to={`/order/${prenom}`}>
+          <button type="submit">Accéder à votre espace</button>
+        </Link>
       </form>
     </div>
   );
