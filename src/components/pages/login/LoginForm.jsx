@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../../../theme";
 import styled from "styled-components";
-import Input from "./Input";
 import { BsPersonCircle } from "react-icons/bs";
+import TextInput from "./TextInput";
 
 const LoginForm = () => {
   const [prenom, setPrenom] = useState("");
@@ -28,7 +28,7 @@ const LoginForm = () => {
         <br />
         <h2>Connectez-vous</h2>
         <form type="submit" onSubmit={handleSubmit}>
-          <Input
+          <TextInput
             prenom={prenom}
             handleChange={handleChange}
             placeholder={"Entrez votre prenom"}

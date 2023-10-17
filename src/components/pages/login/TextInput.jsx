@@ -2,9 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-export default function Input({ prenom, handleChange, Icon, ...extraProps }) {
+export default function TextInput({
+  prenom,
+  handleChange,
+  Icon,
+  ...extraProps
+}) {
   return (
-    <InputStyled>
+    <TextInputStyled>
       {Icon}
       <input
         type="text"
@@ -12,11 +17,11 @@ export default function Input({ prenom, handleChange, Icon, ...extraProps }) {
         onChange={handleChange}
         {...extraProps}
       />
-    </InputStyled>
+    </TextInputStyled>
   );
 }
 
-const InputStyled = styled.div`
+const TextInputStyled = styled.div`
   background-color: ${theme.colors.background_white};
   border-radius: ${theme.borderRadius.round};
   display: flex;
@@ -27,6 +32,7 @@ const InputStyled = styled.div`
   input {
     border: none;
     background-color: ${theme.colors.background_white};
+    width: 100%;
   }
 
   .icon {
