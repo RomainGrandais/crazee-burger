@@ -43,7 +43,8 @@ const NavBarStyled = styled.nav`
   border-radius: ${theme.borderRadius.extraRound}
     ${theme.borderRadius.extraRound} 0px 0px;
   padding: 0px 70px 0px ${theme.spacing.md};
-  height: 100px;
+  height: 12vh;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -4,6 +4,7 @@ import Logo from "../../reusable-ui/Logo";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./NavBar";
+import Main from "./Main";
 
 export default function OrderPage() {
   const params = useParams();
@@ -13,7 +14,7 @@ export default function OrderPage() {
       <div className="background"></div>
       <div className="order-content">
         <NavBar username={params.username} />
-        <div className="main"></div>
+        <Main />
       </div>
     </OrderPageStyled>
   );
@@ -38,15 +39,10 @@ const OrderPageStyled = styled.div`
   }
 
   .order-content {
-    padding: 25px 56px 25px 56px;
-  }
-
-  .main {
-    background-color: ${theme.colors.background_white};
-    border-radius: 0px 0px ${theme.borderRadius.extraRound}
-      ${theme.borderRadius.extraRound};
-    box-shadow: 0px ${theme.spacing.xs} ${theme.spacing.md} ${theme.spacing.xs}
-      rgba(0, 0, 0, 0.2) inset;
-    height: 625px;
+    height: 95vh;
+    padding: 15px 56px 15px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
