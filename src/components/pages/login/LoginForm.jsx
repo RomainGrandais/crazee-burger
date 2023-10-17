@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { theme } from "../../../theme";
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
-import TextInput from "./TextInput";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 const LoginForm = () => {
   const [prenom, setPrenom] = useState("");
@@ -34,11 +35,7 @@ const LoginForm = () => {
             placeholder={"Entrez votre prenom"}
             Icon={<BsPersonCircle className="icon" />}
           />
-          <div className="button-with-icon">
-            <button type="submit">
-              <span>Accéder à mon espace</span>
-            </button>
-          </div>
+          <PrimaryButton label={"Accéder à mon espace"} />
         </form>
       </div>
     </LoginFormStyled>
@@ -74,25 +71,5 @@ const LoginFormStyled = styled.div`
   form {
     gap: 12px;
     margin-top: 12px;
-  }
-
-  .button-with-icon {
-    display: flex;
-    justify-content: center;
-    button {
-      padding: 18px 24px;
-      gap: 12px;
-      color: ${theme.colors.background_white};
-      background-color: ${theme.colors.primary};
-      font-weight: ${theme.weights.bold};
-      border-radius: ${theme.borderRadius.round};
-      width: 400px;
-      height: 53px;
-      border: 1px solid ${theme.colors.primary};
-    }
-    button:active {
-      color: ${theme.colors.primary};
-      background-color: ${theme.colors.background_white};
-    }
   }
 `;
