@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { theme } from "../../../theme";
 import styled from "styled-components";
+import Input from "./Input";
 import { BsPersonCircle } from "react-icons/bs";
-import { IoChevronForward } from "react-icons/io5";
 
 const LoginForm = () => {
   const [prenom, setPrenom] = useState("");
@@ -28,16 +28,12 @@ const LoginForm = () => {
         <br />
         <h2>Connectez-vous</h2>
         <form type="submit" onSubmit={handleSubmit}>
-          <div className="input-with-icon">
-            <BsPersonCircle className="icon" />
-            <input
-              type="text"
-              value={prenom}
-              placeholder="Entrez votre prénom"
-              onChange={handleChange}
-              required
-            />
-          </div>
+          <Input
+            prenom={prenom}
+            handleChange={handleChange}
+            placeholder={"Entrez votre prenom"}
+            Icon={<BsPersonCircle className="icon" />}
+          />
           <div className="button-with-icon">
             <button type="submit">
               <span>Accéder à mon espace</span>
@@ -78,30 +74,6 @@ const LoginFormStyled = styled.div`
   form {
     gap: 12px;
     margin-top: 12px;
-  }
-
-  .input-with-icon {
-    background-color: ${theme.colors.background_white};
-    border-radius: ${theme.borderRadius.round};
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    gap: 12px;
-
-    input {
-      border: none;
-      background-color: ${theme.colors.background_white};
-    }
-
-    .icon {
-      font-size: ${theme.fonts.P0};
-      margin-right: 8px;
-      color: ${theme.colors.dark};
-    }
-    &::placeholder {
-      background: ${theme.colors.background_white};
-      color: ${theme.colors.greyLight};
-    }
   }
 
   .button-with-icon {

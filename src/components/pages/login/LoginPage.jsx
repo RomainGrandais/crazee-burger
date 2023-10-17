@@ -2,7 +2,6 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import background from "/F03_burger-background.jpg";
-import { theme } from "../../../theme";
 import Logo from "../../reusable-ui/Logo";
 
 const LoginPage = () => {
