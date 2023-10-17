@@ -9,7 +9,9 @@ const LoginPage = () => {
     <LoginPageStryled>
       <div className="background-image">
         <div className="content">
-          <Logo />
+          <div className="logo">
+            <Logo />
+          </div>
           <LoginForm />
         </div>
       </div>
@@ -20,8 +22,12 @@ const LoginPage = () => {
 export default LoginPage;
 
 const LoginPageStryled = styled.div`
-  position: relative;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: ;
 
   &::before {
     content: "";
@@ -40,5 +46,9 @@ const LoginPageStryled = styled.div`
   .content {
     display: grid;
     place-items: center;
+  }
+  .logo {
+    transform: scale(2.5);
+    padding-bottom: 30px;
   }
 `;
