@@ -1,12 +1,20 @@
 import React from "react";
 import { theme } from "../../../theme";
 import styled from "styled-components";
+import Menu from "./Menu";
 
 export default function Main() {
-  return <MainStyled className="main"></MainStyled>;
+  return (
+    <MainStyled>
+      <div className="basket"></div>
+      <Menu />
+    </MainStyled>
+  );
 }
 
 const MainStyled = styled.div`
+  display: flex;
+  flex-direction: row;
   background-color: ${theme.colors.background_white};
   border-radius: 0px 0px ${theme.borderRadius.extraRound}
     ${theme.borderRadius.extraRound};

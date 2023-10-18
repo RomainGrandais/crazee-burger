@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ label }) {
+export default function PrimaryButton({ label, width, height }) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled width={width} height={height}>
       <button type="submit">
         <span>{label}</span>
       </button>
@@ -13,17 +13,18 @@ export default function PrimaryButton({ label }) {
 }
 
 const PrimaryButtonStyled = styled.div`
-  display: flex;
-  justify-content: center;
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 18px 24px;
     gap: 12px;
     color: ${theme.colors.background_white};
     background-color: ${theme.colors.primary};
     font-weight: ${theme.weights.bold};
     border-radius: ${theme.borderRadius.round};
-    width: 400px;
-    height: 53px;
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
     border: 1px solid ${theme.colors.primary};
   }
   button:active {

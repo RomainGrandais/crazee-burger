@@ -27,7 +27,6 @@ const LoginPageStryled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ;
 
   &::before {
     content: "";
