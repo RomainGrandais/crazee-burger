@@ -6,28 +6,32 @@ import { theme } from "../../theme";
 export default function Logo() {
   return (
     <LogoStyled>
-      <div className="logo">
-        <h1>CRAZEE</h1>
-        <img src={burger} alt="Logo burger" />
-        <h1>BURGER</h1>
-      </div>
+      <h1>CRAZEE</h1>
+      <img src={burger} alt="Logo burger" />
+      <h1>BURGER</h1>
     </LogoStyled>
   );
 }
 
 const LogoStyled = styled.div`
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 200px;
-    padding-bottom: 20px;
-    gap: ${theme.spacing.xs};
-    font-size: ${theme.fonts.P6};
-    color: ${theme.colors.primary_burger};
+  display: flex;
+  align-items: center;
+
+  h1 {
+    display: inline;
+    text-align: center;
+    font-size: ${theme.fonts.P4};
+    color: ${theme.colors.primary};
+    line-height: 1em;
+    font-weight: ${theme.weights.bold};
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
   }
-  .logo img {
-    width: 15%;
-    height: 15%;
+  img {
+    object-fit: contain;
+    object-position: center;
+    height: 60px;
+    width: 80px;
+    margin: 0 ${theme.gridUnit / 2}px;
   }
 `;
