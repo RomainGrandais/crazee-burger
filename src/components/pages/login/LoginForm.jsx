@@ -35,7 +35,11 @@ const LoginForm = () => {
             placeholder={"Entrez votre prenom"}
             Icon={<BsPersonCircle className="icon" />}
           />
-          <PrimaryButton label={"Accéder à mon espace"} />
+          <PrimaryButton
+            label={"Accéder à mon espace"}
+            width="400px"
+            height="53px"
+          />
         </form>
       </div>
     </LoginFormStyled>
