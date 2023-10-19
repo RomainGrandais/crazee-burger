@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import { fakeMenu1, fakeMenu2 } from "../../../fakeData/fakeMenu";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { formatPrice } from "../../utils/maths";
 
 export default function Card({ image, price, title }) {
   return (
     <CardStyled image={image}>
       <div className="img"></div>
       <div className="infotext">
-        <h1>{title}</h1>
+        <div className="title-span">
+          <h1>
+            <span>{title}</span>
+          </h1>
+        </div>
         <div className="bottom-info">
-          <h2>{price}</h2>
+          <h2>{formatPrice(price)}</h2>
           <div className="add-button">
             <PrimaryButton label={"Ajouter"} width={"95px"} height={"38px"} />
           </div>
@@ -46,17 +50,21 @@ const CardStyled = styled.div`
   .infotext {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 100%;
     height: 110px;
-    gap: 10px
+    gap: 10px;
     padding: 0px 5px 5px 5px;
 
+    .title-span span {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+    }
     h1 {
       font-size: ${theme.fonts.P5};
-      white-space: nowrap;
-      text-overflow: e;
-      max-width: 100%;
-      max-height: 100%;
+      display: block;
     }
 
     .bottom-info {

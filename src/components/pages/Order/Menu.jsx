@@ -25,7 +25,14 @@ const MenuStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  padding: 20px 0px 0px 0px;
+  overflow: scroll;
+  padding-bottom: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .grid {
     display: grid;
     row-gap: 30px;
