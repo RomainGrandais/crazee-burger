@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import { fakeMenu1, fakeMenu2 } from "../../../fakeData/fakeMenu";
+import { fakeMenu1, fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import { theme } from "../../../../theme";
 
 export default function Menu() {
   return (
@@ -26,17 +27,15 @@ const MenuStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
-  padding: 20px 0px 0px 0px;
+  padding: ${theme.spacing.md} 0px ${theme.spacing.md} 0px;
   overflow: scroll;
-  padding-bottom: 20px;
 
   &::-webkit-scrollbar {
     display: none;
   }
   .grid {
     display: grid;
-    row-gap: 30px;
-    column-gap: 50px;
+    grid-gap: ${theme.spacing.lg} ${theme.spacing.xl};
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
