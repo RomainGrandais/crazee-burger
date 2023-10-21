@@ -16,4 +16,5 @@ const AdminContentStyled = styled.div`
   background-color: ${theme.colors.white};
   border-radius: 0px 0px 15px 15px;
   border: solid 1px ${theme.colors.greyLight};
+  box-shadow: ${theme.shadows.subtle};
 `;

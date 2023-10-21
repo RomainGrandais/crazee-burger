@@ -63,4 +63,5 @@ const AdminTabStyled = styled.div`
   height: 44px;
   display: flex;
   flex-direction: row;
+  padding-left: 70px;
 `;

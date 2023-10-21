@@ -22,6 +22,5 @@ const AdminPannelStyled = styled.div`
   bottom: 0;
   left: 0;
   z-index: 0;
-  padding-left: 70px;
   width: 100%;
 `;
