@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
-import { formatPrice } from "../../../utils/maths";
+import { theme } from "../../../../../theme";
+import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Card({ image, price, title }) {
   return (

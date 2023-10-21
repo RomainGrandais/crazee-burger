@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import { fakeMenu1, fakeMenu2 } from "../../../../fakeData/fakeMenu";
-import { theme } from "../../../../theme";
+import { fakeMenu1, fakeMenu2 } from "../../../../../fakeData/fakeMenu";
+import { theme } from "../../../../../theme";
 
 export default function Menu() {
   return (
@@ -36,7 +36,7 @@ const MenuStyled = styled.div`
   .grid {
     display: grid;
     grid-gap: ${theme.spacing.lg} ${theme.spacing.xl};
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
