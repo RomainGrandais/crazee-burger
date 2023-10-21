@@ -10,11 +10,11 @@ export default function Main() {
 
   return (
     <MainStyled>
-      <div className="menu">
-        <div className="basket"></div>
+      {/* <div className="basket">cazvavae</div> */}
+      <div className="menu-admin">
         <Menu />
+        {info.isActive && <AdminPanel />}
       </div>
-      {info.isActive && <AdminPanel />}
     </MainStyled>
   );
 }
@@ -23,11 +23,10 @@ const MainStyled = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: ${theme.colors.background_white};
   border-radius: 0px 0px ${theme.borderRadius.extraRound}
     ${theme.borderRadius.extraRound};
-
   height: 85vh;
 
   &::before {
@@ -42,9 +41,10 @@ const MainStyled = styled.div`
     border-radius: 0px 0px ${theme.borderRadius.extraRound}
       ${theme.borderRadius.extraRound};
   }
-  .menu {
+  .menu-admin {
+    position: relative;
     display: flex;
-    flex-direction: row;
     z-index: 0;
+    width: 100%;
   }
 `;

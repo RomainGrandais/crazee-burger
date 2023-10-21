@@ -61,7 +61,6 @@ export default function AdminTab() {
 
 const AdminTabStyled = styled.div`
   height: 44px;
-  padding-left: 70px;
   display: flex;
   flex-direction: row;
 `;
