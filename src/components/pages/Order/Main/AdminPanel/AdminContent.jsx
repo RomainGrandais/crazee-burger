@@ -14,7 +14,8 @@ const AdminContentStyled = styled.div`
   box-sizing: border-box;
   height: 250px;
   background-color: ${theme.colors.white};
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px ${theme.borderRadius.extraRound}
+    ${theme.borderRadius.extraRound};
   border: solid 1px ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
 `;

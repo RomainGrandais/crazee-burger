@@ -27,19 +27,11 @@ export default function AdminTab() {
   return (
     <AdminTabStyled>
       <div className="up" onClick={handleClickDown}>
-        {infos.isDown ? (
-          <AdminButton
-            icons={<FiChevronUp />}
-            label={""}
-            isSelected={infos.isDown}
-          />
-        ) : (
-          <AdminButton
-            icons={<FiChevronDown />}
-            label={""}
-            isSelected={infos.isDown}
-          />
-        )}
+        <AdminButton
+          icons={infos.isDown ? <FiChevronUp /> : <FiChevronDown />}
+          label={""}
+          isSelected={infos.isDown}
+        />
       </div>
       <div className="addProcudct" onClick={handleClickAddProduct}>
         <AdminButton
@@ -63,5 +55,6 @@ const AdminTabStyled = styled.div`
   height: 44px;
   display: flex;
   flex-direction: row;
-  padding-left: 70px;
+  position: relative;
+  left: 5%;
 `;

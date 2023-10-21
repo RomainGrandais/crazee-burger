@@ -31,4 +31,8 @@ const AdminButtonStyled = styled.button`
   border: solid 1px
     ${(props) =>
       props.isSelected ? theme.colors.background_dark : theme.colors.greyLight};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
