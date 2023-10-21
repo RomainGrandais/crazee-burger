@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./NavBar/NavBar";
 import Main from "./Main/Main";
+import AdminContext from "../../../context/AdminContext";
 
 export default function OrderPage() {
   const params = useParams();
+  const [isActive, setIsActive] = useState(false);
+
+  const adminContextValue = {
+    isActive,
+    setIsActive,
+  };
 
   return (
     <OrderPageStyled>
       <div className="background"></div>
       <div className="order-content">
-        <NavBar username={params.username} />
-        <Main />
+        <AdminContext.Provider value={adminContextValue}>
+          <NavBar username={params.username} />
+          <Main />
+        </AdminContext.Provider>
       </div>
     </OrderPageStyled>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function AdminButton({ icons, label }) {
+export default function AdminButton({ icons, label, isSelected }) {
   return (
-    <AdminButtonStyled>
+    <AdminButtonStyled isSelected={isSelected}>
       {icons}
       {label}
     </AdminButtonStyled>
@@ -21,10 +21,13 @@ const AdminButtonStyled = styled.button`
   border: none;
   height: 100%;
   border-radius: ${theme.borderRadius.round} ${theme.borderRadius.round} 0px 0px;
-  background-color: ${theme.colors.white};
+  background-color: ${(props) =>
+    props.isSelected ? theme.colors.background_dark : theme.colors.white};
   box-shadow: ${theme.shadows.subtle};
   gap: 13px;
   font-family: "Open Sans", sans-serif;
   font-weight: ${theme.weights.regular};
-  color: ${theme.colors.greySemiDark};
+  color: ${(props) =>
+    props.isSelected ? theme.colors.white : theme.colors.greyDark};
+  border: solid 1px ${theme.colors.greyLight};
 `;

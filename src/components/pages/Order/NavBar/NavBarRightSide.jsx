@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Profil from "./Profil";
 import ToggleButton from "./ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ToastAdmin from "./ToastAdmin";
+import AdminContext from "../../../../context/AdminContext";
 
 export default function NavBarRightSide({ username }) {
   const [isChecked, setIsChecked] = useState(false);
+  const info = useContext(AdminContext);
 
   const handleToggle = () => {
     if (!isChecked) {
-      // Vérifiez si isChecked est actuellement false
       toast.info("Mode admin activé", {
-        // icon: <FaUserSecret size={30} />,
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
@@ -24,7 +24,8 @@ export default function NavBarRightSide({ username }) {
         progress: undefined,
       });
     }
-    setIsChecked((prevState) => !prevState); // Utilisez une fonction pour mettre à jour l'état
+    setIsChecked((prevState) => !prevState);
+    info.setIsActive(!isChecked);
   };
 
   return (
