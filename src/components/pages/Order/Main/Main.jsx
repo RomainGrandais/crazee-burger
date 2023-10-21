@@ -2,7 +2,7 @@ import React from "react";
 import { theme } from "../../../../theme";
 import styled from "styled-components";
 import Menu from "./Menu/Menu";
-import AdminPanel from "./AdminPannel/AdminPannel";
+import AdminPanel from "./AdminPanel/AdminPanel";
 
 export default function Main() {
   return (
