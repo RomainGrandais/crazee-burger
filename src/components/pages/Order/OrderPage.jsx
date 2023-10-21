@@ -9,10 +9,19 @@ import AdminContext from "../../../context/AdminContext";
 export default function OrderPage() {
   const params = useParams();
   const [isActive, setIsActive] = useState(false);
+  const [isDown, setIsDown] = useState(true);
+  const [isAddProduct, setAddProduct] = useState(true);
+  const [isModifProduct, setModifProduct] = useState(false);
 
   const adminContextValue = {
     isActive,
     setIsActive,
+    isDown,
+    setIsDown,
+    isAddProduct,
+    setAddProduct,
+    isModifProduct,
+    setModifProduct,
   };
 
   return (
