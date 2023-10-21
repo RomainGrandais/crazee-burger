@@ -2,7 +2,7 @@ import React from "react";
 import { theme } from "../../../../theme";
 import styled from "styled-components";
 import Menu from "./Menu/Menu";
-import AdminPannel from "./AdminPannel/AdminPannel";
+import AdminPanel from "./AdminPannel/AdminPannel";
 
 export default function Main() {
   return (
@@ -11,7 +11,7 @@ export default function Main() {
         <div className="basket"></div>
         <Menu />
       </div>
-      <AdminPannel />
+      <AdminPanel />
     </MainStyled>
   );
 }
@@ -30,6 +30,7 @@ const MainStyled = styled.div`
 
   .menu {
     display: flex;
+    flex-direction: row;
     z-index: 0;
   }
 `;
