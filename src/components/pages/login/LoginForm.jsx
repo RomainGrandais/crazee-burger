@@ -30,10 +30,12 @@ const LoginForm = () => {
         <h2>Connectez-vous</h2>
         <form type="submit" onSubmit={handleSubmit}>
           <TextInput
-            prenom={prenom}
+            value={prenom}
             handleChange={handleChange}
-            placeholder={"Entrez votre prenom"}
             Icon={<BsPersonCircle className="icon" />}
+            width="352px"
+            height="18px"
+            placeholder={"Entrez votre prenom"}
           />
           <PrimaryButton
             label={"Accéder à mon espace"}

@@ -4,7 +4,7 @@ import Profil from "./Profil";
 import ToggleButton from "./ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ToastAdmin from "./ToastAdmin";
+import ToastAdmin from "../../../reusable-ui/ToastAdmin";
 import AdminContext from "../../../../context/AdminContext";
 
 export default function NavBarRightSide({ username }) {

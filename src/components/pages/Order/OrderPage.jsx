@@ -12,6 +12,7 @@ export default function OrderPage() {
   const [isDown, setIsDown] = useState(true);
   const [isAddProduct, setAddProduct] = useState(true);
   const [isModifProduct, setModifProduct] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const adminContextValue = {
     isActive,
@@ -22,6 +23,8 @@ export default function OrderPage() {
     setAddProduct,
     isModifProduct,
     setModifProduct,
+    isEmpty,
+    setIsEmpty,
   };
 
   return (
