@@ -14,7 +14,9 @@ export default function Card({ image, price, title, index }) {
     const menuCopy = [...infosMenu.menu];
 
     infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
-    console.log(menuCopy);
+    if (infosMenu.menu.length == 1) {
+      infos.setIsEmpty(true);
+    }
   };
 
   return (

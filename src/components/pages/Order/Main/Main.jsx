@@ -6,6 +6,7 @@ import AdminPanel from "./AdminPanel/AdminPanel";
 import AdminContext from "../../../../context/AdminContext";
 import AddProductContext from "../../../../context/AddProductContext";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import EmptyMenu from "./Menu/EmptyMenu";
 
 export default function Main() {
   const info = useContext(AdminContext);
@@ -30,7 +31,7 @@ export default function Main() {
       {/* <div className="basket">cazvavae</div> */}
       <div className="menu-admin">
         <AddProductContext.Provider value={addProductContextValue}>
-          <Menu />
+          {info.isEmpty ? <EmptyMenu /> : <Menu />}
           {info.isActive && <AdminPanel />}
         </AddProductContext.Provider>
       </div>

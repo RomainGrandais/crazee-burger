@@ -9,4 +9,6 @@ export default createContext({
   setAddProduct: () => {},
   isModifProduct: false,
   setModifProduct: () => {},
+  isEmpty: false,
+  setIsEmpty: () => {},
 });
