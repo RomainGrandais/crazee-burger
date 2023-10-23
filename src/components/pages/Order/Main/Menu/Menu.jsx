@@ -16,6 +16,7 @@ export default function Menu() {
               image={item.imageSource ? item.imageSource : commingSoon}
               price={item.price ? item.price : "0,00€"}
               title={item.title}
+              index={item.id}
             />
           ))}
         </div>

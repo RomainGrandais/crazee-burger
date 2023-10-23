@@ -4,17 +4,26 @@ import { theme } from "../../../../../theme";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { formatPrice } from "../../../../utils/maths";
 import AdminContext from "../../../../../context/AdminContext";
+import AddProductContext from "../../../../../context/AddProductContext";
 
-export default function Card({ image, price, title }) {
+export default function Card({ image, price, title, index }) {
   const infos = useContext(AdminContext);
+  const infosMenu = useContext(AddProductContext);
+
+  const handleClick = () => {
+    const menuCopy = [...infosMenu.menu];
+
+    infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
+    console.log(menuCopy);
+  };
 
   return (
-    <CardStyled image={image}>
-      {infos.isActive && (
-        <div className="test">
-          <span className="croix">x</span>
-        </div>
-      )}
+    <CardStyled image={image} isActive={infos.isActive}>
+      <div className="test">
+        <span className="croix" onClick={handleClick}>
+          x
+        </span>
+      </div>
       <div className="img"></div>
       <div className="infotext">
         <div className="title-span">
@@ -47,12 +56,13 @@ const CardStyled = styled.div`
 
   .test {
     width: 100%;
+    height: 20px;
     display: flex;
     justify-content: flex-end;
     padding: 10px 0px 0px 0px;
 
     .croix {
-      display: flex;
+      display: ${(props) => (props.isActive ? "flex" : "none")};
       justify-content: center;
       align-items: flex-end;
       color: white;
