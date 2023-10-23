@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import AddProductForm from "./AddProductForm";
 
 export default function AdminContent({ AddProduct }) {
   return (
     <AdminContentStyled>
-      {AddProduct ? "Ajouter un produit" : "Modifier un Produit"}
+      {AddProduct ? <AddProductForm /> : "Modifier un Produit"}
     </AdminContentStyled>
   );
 }
 
 const AdminContentStyled = styled.div`
+  position: relative;
   box-sizing: border-box;
   height: 250px;
   background-color: ${theme.colors.white};
