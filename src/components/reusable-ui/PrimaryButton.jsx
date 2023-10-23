@@ -32,6 +32,9 @@ const PrimaryButtonStyled = styled.div`
     height: ${(props) => props.height};
     border: 1px solid ${(props) => props.color};
   }
+  button:hover {
+    cursor: pointer;
+  }
   button:active {
     color: ${(props) => props.color};
     background-color: ${theme.colors.background_white};

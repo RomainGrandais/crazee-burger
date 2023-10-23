@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { formatPrice } from "../../../../utils/maths";
+import AdminContext from "../../../../../context/AdminContext";
 
 export default function Card({ image, price, title }) {
+  const infos = useContext(AdminContext);
+
   return (
     <CardStyled image={image}>
+      {infos.isActive && (
+        <div className="test">
+          <span className="croix">x</span>
+        </div>
+      )}
       <div className="img"></div>
       <div className="infotext">
         <div className="title-span">
@@ -36,6 +44,28 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
   background-color: ${theme.colors.white};
+
+  .test {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0px 0px 0px;
+
+    .croix {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      color: white;
+      background-color: ${theme.colors.primary};
+      width: 20px;
+      height: 20px;
+      border-radius: 15px;
+    }
+    .croix:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+  }
 
   .img {
     width: 200px;
