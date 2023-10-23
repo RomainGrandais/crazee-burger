@@ -26,35 +26,39 @@ export default function AdminTab() {
   };
   return (
     <AdminTabStyled>
-      <div className="up" onClick={handleClickDown}>
-        <AdminButton
-          icons={infos.isDown ? <FiChevronUp /> : <FiChevronDown />}
-          label={""}
-          isSelected={infos.isDown}
-        />
-      </div>
-      <div className="addProcudct" onClick={handleClickAddProduct}>
-        <AdminButton
-          icons={<AiOutlinePlus />}
-          label={"Ajouter un produit"}
-          isSelected={infos.isAddProduct}
-        />
-      </div>
-      <div className="modifProduct" onClick={handleClickModifProduct}>
-        <AdminButton
-          icons={<MdModeEditOutline />}
-          label={"Modifier un produit"}
-          isSelected={infos.isModifProduct}
-        />
+      <div className="bar">
+        <div className="up" onClick={handleClickDown}>
+          <AdminButton
+            icons={infos.isDown ? <FiChevronUp /> : <FiChevronDown />}
+            label={""}
+            isSelected={infos.isDown}
+          />
+        </div>
+        <div className="addProcudct" onClick={handleClickAddProduct}>
+          <AdminButton
+            icons={<AiOutlinePlus />}
+            label={"Ajouter un produit"}
+            isSelected={infos.isAddProduct}
+          />
+        </div>
+        <div className="modifProduct" onClick={handleClickModifProduct}>
+          <AdminButton
+            icons={<MdModeEditOutline />}
+            label={"Modifier un produit"}
+            isSelected={infos.isModifProduct}
+          />
+        </div>
       </div>
     </AdminTabStyled>
   );
 }
 
 const AdminTabStyled = styled.div`
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  left: 5%;
+  max-width: 100%;
+  .bar {
+    display: flex;
+    height: 44px;
+    flex-direction: row;
+    padding-left: 70px;
+  }
 `;

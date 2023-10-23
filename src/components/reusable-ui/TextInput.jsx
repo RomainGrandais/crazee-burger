@@ -3,17 +3,19 @@ import styled from "styled-components";
 import { theme } from "../../theme";
 
 export default function TextInput({
-  prenom,
+  value,
   handleChange,
   Icon,
+  width = "600px",
+  height = "2px",
   ...extraProps
 }) {
   return (
-    <TextInputStyled>
-      {Icon}
+    <TextInputStyled width={width} height={height}>
+      <div className="icon">{Icon}</div>
       <input
         type="text"
-        value={prenom}
+        value={value}
         onChange={handleChange}
         {...extraProps}
       />
@@ -28,9 +30,12 @@ const TextInputStyled = styled.div`
   align-items: center;
   padding: 18px 24px;
   gap: 12px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 
   input {
     border: none;
+    outline: none;
     background-color: ${theme.colors.background_white};
     width: 100%;
   }
