@@ -5,13 +5,14 @@ import Menu from "./Menu/Menu";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import AdminContext from "../../../../context/AdminContext";
 import AddProductContext from "../../../../context/AddProductContext";
+import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 
 export default function Main() {
   const info = useContext(AdminContext);
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState([...fakeMenu2]);
 
   const addProductContextValue = {
     image,

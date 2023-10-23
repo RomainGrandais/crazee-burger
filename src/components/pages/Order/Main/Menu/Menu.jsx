@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import { fakeMenu1, fakeMenu2 } from "../../../../../fakeData/fakeMenu";
 import { theme } from "../../../../../theme";
+import AddProductContext from "../../../../../context/AddProductContext";
+import commingSoon from "/public/images/coming-soon.png";
 
 export default function Menu() {
+  const infos = useContext(AddProductContext);
   return (
     <MenuStyled>
       <div className="menu">
         <div className="grid">
-          {[...fakeMenu1, ...fakeMenu2].map((item, index) => (
+          {[...infos.menu].map((item, index) => (
             <Card
-              image={item.imageSource}
+              image={item.imageSource ? item.imageSource : commingSoon}
               price={item.price}
               title={item.title}
             />
@@ -36,7 +38,6 @@ const MenuStyled = styled.div`
   .grid {
     display: grid;
     grid-gap: ${theme.spacing.lg} ${theme.spacing.xl};
-    grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(4, 1fr);
   }
 `;

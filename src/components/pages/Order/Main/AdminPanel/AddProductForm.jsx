@@ -29,6 +29,21 @@ export default function AddProductForm() {
 
   const handleClick = (event) => {
     event.preventDefault();
+    const menuCopy = [...info.menu];
+
+    menuCopy.push({
+      id: new Date().valueOf(),
+      imageSource: info.image,
+      title: info.title,
+      price: info.price,
+      quantity: 0,
+      isAvailable: true,
+      isAdvertised: false,
+    });
+    info.setMenu(menuCopy);
+    info.setImage("");
+    info.setPrice("");
+    info.setTitle("");
   };
 
   return (
