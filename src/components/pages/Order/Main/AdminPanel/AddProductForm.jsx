@@ -7,6 +7,8 @@ import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { MdOutlineEuroSymbol } from "react-icons/md";
 import { useContext } from "react";
 import AddProductContext from "../../../../../context/AddProductContext";
+import ToastAdmin from "../../../../reusable-ui/ToastAdmin";
+import { toast } from "react-toastify";
 
 export default function AddProductForm() {
   const info = useContext(AddProductContext);
@@ -44,6 +46,16 @@ export default function AddProductForm() {
     info.setImage("");
     info.setPrice("");
     info.setTitle("");
+    toast.info("Ajouté avec succès !", {
+      theme: "dark",
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -85,6 +97,7 @@ export default function AddProductForm() {
             color={theme.colors.success}
           />
         </div>
+        <ToastAdmin />
       </div>
     </AddProductFormStyled>
   );

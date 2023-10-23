@@ -14,7 +14,7 @@ export default function Menu() {
           {[...infos.menu].map((item, index) => (
             <Card
               image={item.imageSource ? item.imageSource : commingSoon}
-              price={item.price}
+              price={item.price ? item.price : "0,00€"}
               title={item.title}
             />
           ))}
