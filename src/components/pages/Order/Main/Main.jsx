@@ -14,6 +14,8 @@ export default function Main() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [menu, setMenu] = useState([...fakeMenu2]);
+  const [id, setId] = useState(null);
+  const [cardSelect, setCardSelect] = useState(false);
 
   const addProductContextValue = {
     image,
@@ -24,6 +26,10 @@ export default function Main() {
     setPrice,
     menu,
     setMenu,
+    id,
+    setId,
+    cardSelect,
+    setCardSelect,
   };
 
   return (

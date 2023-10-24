@@ -9,4 +9,7 @@ export default createContext({
   setPrice: () => {},
   menu: [],
   setMenu: () => {},
+  id: 1,
+  cardSelect: false,
+  setCardSelecrt: () => {},
 });

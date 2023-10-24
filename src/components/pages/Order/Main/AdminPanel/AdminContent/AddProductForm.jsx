@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
-import TextInput from "../../../../reusable-ui/TextInput";
+import { theme } from "../../../../../../theme";
+import TextInput from "../../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
-import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import { MdOutlineEuroSymbol } from "react-icons/md";
 import { useContext } from "react";
-import AddProductContext from "../../../../../context/AddProductContext";
-import ToastAdmin from "../../../../reusable-ui/ToastAdmin";
+import AddProductContext from "../../../../../../context/AddProductContext";
+import ToastAdmin from "../../../../../reusable-ui/ToastAdmin";
 import { toast } from "react-toastify";
 
 export default function AddProductForm() {

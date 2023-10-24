@@ -10,7 +10,7 @@ export default function Card({ image, price, title, index }) {
   const infos = useContext(AdminContext);
   const infosMenu = useContext(AddProductContext);
 
-  const handleClick = () => {
+  const handleClickDelete = () => {
     const menuCopy = [...infosMenu.menu];
 
     infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
@@ -21,8 +21,8 @@ export default function Card({ image, price, title, index }) {
 
   return (
     <CardStyled image={image} isActive={infos.isActive}>
-      <div className="test">
-        <span className="croix" onClick={handleClick}>
+      <div className="delete">
+        <span className="croix" onClick={handleClickDelete}>
           x
         </span>
       </div>
@@ -56,7 +56,7 @@ const CardStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
   background-color: ${theme.colors.white};
 
-  .test {
+  .delete {
     width: 100%;
     height: 20px;
     display: flex;
