@@ -6,7 +6,7 @@ import AdminPanel from "./AdminPanel/AdminPanel";
 import AdminContext from "../../../../context/AdminContext";
 import AddProductContext from "../../../../context/AddProductContext";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
-import EmptyMenu from "./Menu/EmptyMenu";
+import EmptyMenu from "./Menu/EmptyMenu/EmptyMenu";
 
 export default function Main() {
   const info = useContext(AdminContext);

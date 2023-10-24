@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
-import { theme } from "../../../../../theme";
-import AdminContext from "../../../../../context/AdminContext";
-import AddProductContext from "../../../../../context/AddProductContext";
-import { fakeMenu2 } from "../../../../../fakeData/fakeMenu";
+import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
+import { theme } from "../../../../../../theme";
+import AdminContext from "../../../../../../context/AdminContext";
+import AddProductContext from "../../../../../../context/AddProductContext";
+import { fakeMenu2 } from "../../../../../../fakeData/fakeMenu";
 
 export default function EmptyMenuAdmin() {
   const infosMenu = useContext(AddProductContext);

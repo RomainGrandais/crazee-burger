@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Card from "./Card";
+import Card from "./Cards/Card";
 import { theme } from "../../../../../theme";
 import AddProductContext from "../../../../../context/AddProductContext";
 import commingSoon from "/public/images/coming-soon.png";
