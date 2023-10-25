@@ -12,12 +12,15 @@ import { MdOutlineEuroSymbol } from "react-icons/md";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 
 export default function ModifProductForm() {
-  const { productSelected } = useContext(AdminContext);
-  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT);
+  const { handleEdit } = useContext(AddProductContext);
+  const { productSelected, setProductSelected } = useContext(AdminContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setProductBeingEdited({ ...productBeingEdited, [name]: value });
+    const productBeingUpdated = { ...productSelected, [name]: value };
+
+    setProductSelected(productBeingUpdated);
+    handleEdit(productBeingUpdated);
   };
 
   const handleError = (event) => {
@@ -46,6 +49,7 @@ export default function ModifProductForm() {
           handleChange={handleChange}
           Icon={<FaHamburger />}
           placeholder={"Nom du produit (ex: Super Burger)"}
+          name="title"
         />
         <TextInput
           value={productSelected.imageSource}
@@ -54,12 +58,14 @@ export default function ModifProductForm() {
           placeholder={
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
+          name="imageSource"
         />
         <TextInput
           value={productSelected.price}
           handleChange={handleChange}
           Icon={<MdOutlineEuroSymbol />}
           placeholder={"Prix"}
+          name="price"
         />
         <span>
           Cliquer sur un produit du menu pour le modifier en temps réel

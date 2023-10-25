@@ -15,7 +15,15 @@ export default function Main() {
   const [price, setPrice] = useState("");
   const [menu, setMenu] = useState([...fakeMenu2]);
   const [id, setId] = useState(null);
-  const [cardSelect, setCardSelect] = useState(false);
+
+  const handleEdit = (productBeingEdited) => {
+    const menuCopy = structuredClone(menu);
+    const indexOfProductToEdit = menuCopy.findIndex(
+      (product) => product.id == productBeingEdited.id
+    );
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+    setMenu(menuCopy);
+  };
 
   const addProductContextValue = {
     image,
@@ -28,8 +36,7 @@ export default function Main() {
     setMenu,
     id,
     setId,
-    cardSelect,
-    setCardSelect,
+    handleEdit,
   };
 
   return (

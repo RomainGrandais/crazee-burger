@@ -10,4 +10,6 @@ export default createContext({
   menu: [],
   setMenu: () => {},
   id: 1,
+  setId: () => {},
+  handleEdit: () => {},
 });
