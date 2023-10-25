@@ -36,7 +36,9 @@ const CardStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  box-sizing: border-box;
+  width: 240px;
+  height: 330px;
   padding: 0px ${theme.spacing.md} ${theme.spacing.sm} ${theme.spacing.md};
   gap: 15px;
   border-radius: ${theme.borderRadius.extraRound};
