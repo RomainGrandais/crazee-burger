@@ -31,7 +31,7 @@ const DeleteCardStyled = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 10px 0px 0px 0px;
-  z-index: 1;
+  z-index: 0;
   .croix {
     display: ${(props) => (props.isActive ? "flex" : "none")};
     justify-content: center;
@@ -41,7 +41,7 @@ const DeleteCardStyled = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 15px;
-    z-index: 1;
+    z-index: 0;
   }
   .croix:hover {
     background-color: red;
