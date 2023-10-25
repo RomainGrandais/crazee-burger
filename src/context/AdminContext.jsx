@@ -11,4 +11,6 @@ export default createContext({
   setModifProduct: () => {},
   isEmpty: false,
   setIsEmpty: () => {},
+  productSelected: {},
+  setProductSelected: () => {},
 });

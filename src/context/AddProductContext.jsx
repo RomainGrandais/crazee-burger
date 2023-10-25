@@ -10,6 +10,4 @@ export default createContext({
   menu: [],
   setMenu: () => {},
   id: 1,
-  cardSelect: false,
-  setCardSelecrt: () => {},
 });

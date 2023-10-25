@@ -7,11 +7,11 @@ import AdminContext from "../../../../../../context/AdminContext";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import DeleteCard from "./DeleteCard";
 
-export default function Card({ image, price, title, index }) {
+export default function Card({ image, price, title, index, onClick }) {
   const infos = useContext(AdminContext);
 
   return (
-    <CardStyled image={image} isActive={infos.isActive}>
+    <CardStyled image={image} isActive={infos.isActive} onClick={onClick}>
       <DeleteCard index={index} />
       <div className="img"></div>
       <div className="infotext">
