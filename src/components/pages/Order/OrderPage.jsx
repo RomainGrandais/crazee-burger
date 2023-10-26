@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import NavBar from "./NavBar/NavBar";
 import Main from "./Main/Main";
 import AdminContext from "../../../context/AdminContext";
+import { EMPTY_PRODUCT } from "../../../enums/product";
 
 export default function OrderPage() {
   const params = useParams();
@@ -13,6 +14,8 @@ export default function OrderPage() {
   const [isAddProduct, setAddProduct] = useState(true);
   const [isModifProduct, setModifProduct] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditBox = useRef();
 
   const adminContextValue = {
     isActive,
@@ -25,6 +28,9 @@ export default function OrderPage() {
     setModifProduct,
     isEmpty,
     setIsEmpty,
+    productSelected,
+    setProductSelected,
+    titleEditBox,
   };
 
   return (

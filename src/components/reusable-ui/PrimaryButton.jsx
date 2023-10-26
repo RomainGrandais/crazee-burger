@@ -7,10 +7,17 @@ export default function PrimaryButton({
   width,
   height,
   color = theme.colors.primary,
+  className,
+  onClick,
 }) {
   return (
-    <PrimaryButtonStyled width={width} height={height} color={color}>
-      <button type="submit">
+    <PrimaryButtonStyled
+      width={width}
+      height={height}
+      color={color}
+      className={className}
+    >
+      <button type="submit" onClick={onClick}>
         <span>{label}</span>
       </button>
     </PrimaryButtonStyled>

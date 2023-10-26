@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { theme } from "../../../../theme";
 import styled from "styled-components";
 import Menu from "./Menu/Menu";
@@ -6,7 +6,7 @@ import AdminPanel from "./AdminPanel/AdminPanel";
 import AdminContext from "../../../../context/AdminContext";
 import AddProductContext from "../../../../context/AddProductContext";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
-import EmptyMenu from "./Menu/EmptyMenu";
+import EmptyMenu from "./Menu/EmptyMenu/EmptyMenu";
 
 export default function Main() {
   const info = useContext(AdminContext);
@@ -14,6 +14,16 @@ export default function Main() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [menu, setMenu] = useState([...fakeMenu2]);
+  const [id, setId] = useState(null);
+
+  const handleEdit = (productBeingEdited) => {
+    const menuCopy = structuredClone(menu);
+    const indexOfProductToEdit = menuCopy.findIndex(
+      (product) => product.id == productBeingEdited.id
+    );
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+    setMenu(menuCopy);
+  };
 
   const addProductContextValue = {
     image,
@@ -24,6 +34,9 @@ export default function Main() {
     setPrice,
     menu,
     setMenu,
+    id,
+    setId,
+    handleEdit,
   };
 
   return (
