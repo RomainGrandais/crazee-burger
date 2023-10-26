@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
@@ -15,6 +15,7 @@ export default function OrderPage() {
   const [isModifProduct, setModifProduct] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditBox = useRef();
 
   const adminContextValue = {
     isActive,
@@ -29,6 +30,7 @@ export default function OrderPage() {
     setIsEmpty,
     productSelected,
     setProductSelected,
+    titleEditBox,
   };
 
   return (

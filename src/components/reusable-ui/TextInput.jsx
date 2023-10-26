@@ -2,26 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({
-  value,
-  handleChange,
-  Icon,
-  width = "600px",
-  height = "2px",
-  ...extraProps
-}) {
-  return (
-    <TextInputStyled width={width} height={height}>
-      <div className="icon">{Icon}</div>
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        {...extraProps}
-      />
-    </TextInputStyled>
-  );
-}
+const TextInput = React.forwardRef(
+  (
+    {
+      value,
+      handleChange,
+      Icon,
+      width = "600px",
+      height = "2px",
+      ...extraProps
+    },
+    ref
+  ) => {
+    return (
+      <TextInputStyled width={width} height={height}>
+        <div className="icon">{Icon}</div>
+        <input
+          type="text"
+          value={value}
+          onChange={handleChange}
+          ref={ref}
+          {...extraProps}
+        />
+      </TextInputStyled>
+    );
+  }
+);
+
+export default TextInput;
 
 const TextInputStyled = styled.div`
   background-color: ${theme.colors.background_white};

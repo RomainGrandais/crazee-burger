@@ -13,4 +13,5 @@ export default createContext({
   setIsEmpty: () => {},
   productSelected: {},
   setProductSelected: () => {},
+  titleEditBox: {},
 });

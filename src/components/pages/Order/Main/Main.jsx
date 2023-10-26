@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { theme } from "../../../../theme";
 import styled from "styled-components";
 import Menu from "./Menu/Menu";

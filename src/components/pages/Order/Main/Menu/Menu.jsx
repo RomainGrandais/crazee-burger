@@ -10,14 +10,15 @@ export default function Menu() {
   const infos = useContext(AdminContext);
   const infosMenu = useContext(AddProductContext);
 
-  const handleClick = (idCard) => {
+  const handleClick = async (idCard) => {
     const selectedProcduct = infosMenu.menu.find(
       (product) => product.id === idCard
     );
-    infos.setProductSelected(selectedProcduct);
-    infos.setAddProduct(false);
-    infos.setModifProduct(true);
-    infos.setIsDown(false);
+    await infos.setProductSelected(selectedProcduct);
+    await infos.setAddProduct(false);
+    await infos.setModifProduct(true);
+    await infos.setIsDown(false);
+    infos.titleEditBox.current.focus();
   };
 
   return (

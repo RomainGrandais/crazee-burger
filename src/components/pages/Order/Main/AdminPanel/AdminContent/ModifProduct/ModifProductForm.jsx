@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import styled from "styled-components";
 import { HiCursorClick } from "react-icons/hi";
 import { theme } from "../../../../../../../theme";
@@ -13,7 +13,8 @@ import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 
 export default function ModifProductForm() {
   const { handleEdit } = useContext(AddProductContext);
-  const { productSelected, setProductSelected } = useContext(AdminContext);
+  const { productSelected, setProductSelected, titleEditBox } =
+    useContext(AdminContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -50,6 +51,7 @@ export default function ModifProductForm() {
           Icon={<FaHamburger />}
           placeholder={"Nom du produit (ex: Super Burger)"}
           name="title"
+          ref={titleEditBox}
         />
         <TextInput
           value={productSelected.imageSource}
