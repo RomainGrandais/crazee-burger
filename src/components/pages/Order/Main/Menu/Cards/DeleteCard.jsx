@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import { theme } from "../../../../../../theme";
 import AdminContext from "../../../../../../context/AdminContext";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
 export default function DeleteCard({ index, isSelected }) {
   const infosMenu = useContext(AddProductContext);
@@ -15,6 +16,9 @@ export default function DeleteCard({ index, isSelected }) {
     infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
     if (infosMenu.menu.length == 1) {
       infos.setIsEmpty(true);
+    }
+    if (index == infos.productSelected.id) {
+      infos.setProductSelected(EMPTY_PRODUCT);
     }
   };
   return (

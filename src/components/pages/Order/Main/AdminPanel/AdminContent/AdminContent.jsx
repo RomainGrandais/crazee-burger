@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import AddProductForm from "./AddProductForm";
-import ModifProductForm from "./ModifProduct/ModifProductForm";
+import EditPanel from "./ModifProduct/EditPanel";
 
 export default function AdminContent({ AddProduct }) {
   return (
     <AdminContentStyled>
-      {AddProduct ? <AddProductForm /> : <ModifProductForm />}
+      {AddProduct ? <AddProductForm /> : <EditPanel />}
     </AdminContentStyled>
   );
 }

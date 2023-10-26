@@ -4,7 +4,6 @@ import { theme } from "../../../../../../theme";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import { formatPrice } from "../../../../../utils/maths";
 import AdminContext from "../../../../../../context/AdminContext";
-import AddProductContext from "../../../../../../context/AddProductContext";
 import DeleteCard from "./DeleteCard";
 
 export default function Card({

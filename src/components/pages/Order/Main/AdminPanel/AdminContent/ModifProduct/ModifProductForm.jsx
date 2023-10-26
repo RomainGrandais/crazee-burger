@@ -30,7 +30,6 @@ export default function ModifProductForm() {
 
   return (
     <ModifProductFormStyled>
-      {/* <ModifProductNotSelect /> */}
       <div className="image-input">
         <label>
           {!productSelected.imageSource ? (
