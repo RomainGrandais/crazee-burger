@@ -20,7 +20,7 @@ const AdminPannelStyled = styled.div`
   flex-direction: column;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 20%;
   z-index: 0;
-  width: 100%;
+  width: 80%;
 `;
