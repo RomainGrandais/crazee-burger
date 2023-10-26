@@ -15,6 +15,9 @@ export default function Menu() {
       (product) => product.id === idCard
     );
     infos.setProductSelected(selectedProcduct);
+    infos.setAddProduct(false);
+    infos.setModifProduct(true);
+    infos.setIsDown(false);
   };
 
   return (
@@ -28,6 +31,7 @@ export default function Menu() {
               title={item.title}
               index={item.id}
               onClick={() => handleClick(item.id)}
+              isSelected={item.id === infos.productSelected.id}
             />
           ))}
         </div>

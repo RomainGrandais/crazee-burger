@@ -7,13 +7,29 @@ import AdminContext from "../../../../../../context/AdminContext";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import DeleteCard from "./DeleteCard";
 
-export default function Card({ image, price, title, index, onClick }) {
+export default function Card({
+  image,
+  price,
+  title,
+  index,
+  onClick,
+  isSelected,
+}) {
   const infos = useContext(AdminContext);
 
+  const handleClick = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <CardStyled image={image} isActive={infos.isActive} onClick={onClick}>
+    <CardStyled
+      image={image}
+      isActive={infos.isActive}
+      onClick={onClick}
+      isSelected={isSelected}
+    >
       <div className="card">
-        <DeleteCard index={index} />
+        <DeleteCard index={index} isSelected={isSelected} />
         <div className="img"></div>
         <div className="infotext">
           <div className="title-span">
@@ -24,7 +40,13 @@ export default function Card({ image, price, title, index, onClick }) {
           <div className="bottom-info">
             <h2>{formatPrice(price)}</h2>
             <div className="add-button">
-              <PrimaryButton label={"Ajouter"} width={"95px"} height={"38px"} />
+              <PrimaryButton
+                label={"Ajouter"}
+                width={"95px"}
+                height={"38px"}
+                className="primary-button"
+                onClick={handleClick}
+              />
             </div>
           </div>
         </div>
@@ -96,7 +118,10 @@ const CardStyled = styled.div`
           padding-right: ${theme.spacing.xl};
           font-size: ${theme.fonts.P0};
           font-weight: ${theme.weights.regular};
-          color: ${theme.colors.primary};
+          color: ${(props) =>
+            props.isSelected && props.isActive
+              ? theme.colors.white
+              : theme.colors.primary};
         }
         .add-button {
           display: flex;
@@ -107,6 +132,7 @@ const CardStyled = styled.div`
         }
       }
     }
+    ${(props) => props.isSelected && props.isActive && selectedStyle}
   }
 `;
 
@@ -116,5 +142,49 @@ const hoverableStyle = css`
     transition: ease-out 0.4s;
     box-shadow: ${theme.shadows.orange};
     cursor: pointer;
+  }
+`;
+
+const selectedStyle = css`
+  background-color: ${theme.colors.primary};
+
+  .primary-button {
+    button {
+      color: ${theme.colors.primary};
+      background-color: ${theme.colors.white};
+      border: 1px solid ${theme.colors.white};
+      transition: all 200ms ease-out;
+    }
+    button:hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+      transition: all 200ms ease-out;
+    }
+    button:active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+
+    &.is-disabled {
+      opacity: 50%;
+      cursor: not-allowed;
+      z-index: 2;
+    }
+
+    &.with-focus {
+      border: 1px solid white;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      :hover {
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.white};
+      }
+      :active {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.primary};
+      }
+    }
   }
 `;

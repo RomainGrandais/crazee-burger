@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import AddProductContext from "../../../../../../context/AddProductContext";
 import { theme } from "../../../../../../theme";
 import AdminContext from "../../../../../../context/AdminContext";
 
-export default function DeleteCard({ index }) {
+export default function DeleteCard({ index, isSelected }) {
   const infosMenu = useContext(AddProductContext);
   const infos = useContext(AdminContext);
 
-  const handleClickDelete = () => {
+  const handleClickDelete = (event) => {
+    event.stopPropagation();
     const menuCopy = [...infosMenu.menu];
 
     infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
@@ -17,7 +18,7 @@ export default function DeleteCard({ index }) {
     }
   };
   return (
-    <DeleteCardStyled isActive={infos.isActive}>
+    <DeleteCardStyled isActive={infos.isActive} isSelected={isSelected}>
       <span className="croix" onClick={handleClickDelete}>
         x
       </span>
@@ -46,5 +47,18 @@ const DeleteCardStyled = styled.div`
   .croix:hover {
     background-color: red;
     cursor: pointer;
+  }
+
+  ${(props) => props.isSelected && props.isActive && deleteSelectedStyle}
+`;
+
+const deleteSelectedStyle = css`
+  .croix {
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary};
+  }
+
+  .croix:active {
+    background-color: ${theme.colors.white};
   }
 `;
