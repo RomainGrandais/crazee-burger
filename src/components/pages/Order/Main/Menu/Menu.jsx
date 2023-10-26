@@ -23,19 +23,18 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      <div className="menu">
-        <div className="grid">
-          {[...infosMenu.menu].map((item, index) => (
-            <Card
-              image={item.imageSource ? item.imageSource : commingSoon}
-              price={item.price ? item.price : "0,00€"}
-              title={item.title}
-              index={item.id}
-              onClick={() => handleClick(item.id)}
-              isSelected={item.id === infos.productSelected.id}
-            />
-          ))}
-        </div>
+      <div className="grid">
+        {[...infosMenu.menu].map((item, index) => (
+          <Card
+            key={item.id}
+            image={item.imageSource ? item.imageSource : commingSoon}
+            price={item.price ? item.price : "0,00€"}
+            title={item.title}
+            index={item.id}
+            onClick={() => handleClick(item.id)}
+            isSelected={item.id === infos.productSelected.id}
+          />
+        ))}
       </div>
     </MenuStyled>
   );
@@ -46,7 +45,7 @@ const MenuStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
-  padding: ${theme.spacing.md} 0px ${theme.spacing.md} 0px;
+  padding: ${theme.spacing.md} 0px ${theme.spacing.md} ${theme.spacing.xxl};
   overflow: scroll;
   box-shadow: ${theme.shadows.strong};
 
@@ -54,8 +53,9 @@ const MenuStyled = styled.div`
     display: none;
   }
   .grid {
+    width: 100%;
     display: grid;
-    grid-gap: ${theme.spacing.xl} ${theme.spacing.xxl};
-    grid-template-columns: repeat(3, 1fr);
+    grid-gap: ${theme.spacing.lg} ${theme.spacing.md};
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 `;
