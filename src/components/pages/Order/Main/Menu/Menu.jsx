@@ -48,6 +48,7 @@ const MenuStyled = styled.div`
   align-items: start;
   padding: ${theme.spacing.md} 0px ${theme.spacing.md} 0px;
   overflow: scroll;
+  box-shadow: ${theme.shadows.strong};
 
   &::-webkit-scrollbar {
     display: none;

@@ -21,7 +21,6 @@ const BasketPanelStyled = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
-  box-shadow: ${theme.shadows.subtle};
   font-family: "Amatic SC", sans-serif;
 
   .total {
@@ -46,6 +45,7 @@ const BasketPanelStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 80%;
+    box-shadow: ${theme.shadows.basket};
     background-color: ${theme.colors.background_white};
     .emptyBasket {
       font-weight: ${theme.weights.regular};
