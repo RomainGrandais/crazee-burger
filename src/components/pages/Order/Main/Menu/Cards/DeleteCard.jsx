@@ -12,8 +12,12 @@ export default function DeleteCard({ index, isSelected }) {
   const handleClickDelete = (event) => {
     event.stopPropagation();
     const menuCopy = [...infosMenu.menu];
+    const menuBasketCopy = [...infos.basketMenu];
 
     infosMenu.setMenu(menuCopy.filter((menuCopy) => menuCopy.id !== index));
+    infos.setBasketMenu(
+      menuBasketCopy.filter((menuBasketCopy) => menuBasketCopy.id !== index)
+    );
     if (infosMenu.menu.length == 1) {
       infos.setIsEmpty(true);
     }

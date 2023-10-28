@@ -16,6 +16,7 @@ export default function OrderPage() {
   const [isEmpty, setIsEmpty] = useState(false);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditBox = useRef();
+  const [basketMenu, setBasketMenu] = useState([]);
 
   const adminContextValue = {
     isActive,
@@ -31,6 +32,8 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     titleEditBox,
+    basketMenu,
+    setBasketMenu,
   };
 
   return (
