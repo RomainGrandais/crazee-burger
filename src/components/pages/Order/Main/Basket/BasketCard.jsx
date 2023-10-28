@@ -30,6 +30,7 @@ const BasketCardStyled = styled.div`
   justify-content: center;
   width: 100%;
   height: 85px;
+  min-height: 85px;
   background-color: ${theme.colors.white};
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.round};

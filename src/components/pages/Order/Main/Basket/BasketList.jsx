@@ -28,7 +28,12 @@ const BasketListStyled = styled.div`
   align-items: center;
   gap: 10px;
   height: 80%;
+  max-height: 80%;
   box-shadow: ${theme.shadows.basket};
   background-color: ${theme.colors.background_white};
   padding: 20px 16px 20px 16px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
