@@ -1,11 +1,19 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
 import { TbTrashXFilled } from "react-icons/tb";
 import AdminContext from "../../../../../context/AdminContext";
 
-export default function BasketCard({ image, price, title, quantity, index }) {
+export default function BasketCard({
+  image,
+  price,
+  title,
+  quantity,
+  index,
+  onClick,
+  isSelected,
+}) {
   const infos = useContext(AdminContext);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -15,12 +23,16 @@ export default function BasketCard({ image, price, title, quantity, index }) {
       menuBasketCopy.filter((menuBasketCopy) => menuBasketCopy.id !== index)
     );
   };
+
   return (
     <BasketCardStyled
       image={image}
       isHovered={isHovered}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
+      isSelected={isSelected}
+      isActive={infos.isActive}
     >
       <div className="img"></div>
       <div className="text-infos">
@@ -31,7 +43,11 @@ export default function BasketCard({ image, price, title, quantity, index }) {
           <h2>{formatPrice(price)}</h2>
         </div>
         <div className="quantity" onClick={handleDelete}>
-          {isHovered ? <TbTrashXFilled /> : <span>x{quantity}</span>}
+          {isHovered ? (
+            <TbTrashXFilled />
+          ) : (
+            <span className="number">x{quantity}</span>
+          )}
         </div>
       </div>
     </BasketCardStyled>
@@ -51,6 +67,7 @@ const BasketCardStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   box-sizing: border-box;
   padding-left: 5px;
+  ${(props) => props.isActive && "cursor: pointer"};
 
   .img {
     width: 85px;
@@ -89,7 +106,10 @@ const BasketCardStyled = styled.div`
         font-weight: ${theme.weights.regular};
         font-size: ${theme.fonts.P0};
         font-family: "Open Sans", sans-serif;
-        color: ${theme.colors.primary};
+        color: ${(props) =>
+          props.isSelected && props.isActive
+            ? theme.colors.white
+            : theme.colors.primary};
       }
     }
     .quantity {
@@ -105,7 +125,10 @@ const BasketCardStyled = styled.div`
         font-weight: ${theme.weights.regular};
         font-size: ${theme.fonts.P0};
         font-family: "Open Sans", sans-serif;
-        color: ${theme.colors.primary};
+        color: ${(props) =>
+          props.isSelected && props.isActive
+            ? theme.colors.white
+            : theme.colors.primary};
       }
     }
 
@@ -113,4 +136,9 @@ const BasketCardStyled = styled.div`
       color: ${theme.colors.background_white};
     }
   }
+  ${(props) => props.isSelected && props.isActive && selectedStyle};
+`;
+
+const selectedStyle = css`
+  background-color: ${theme.colors.primary};
 `;

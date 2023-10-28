@@ -18,7 +18,6 @@ export default function Menu() {
     await infos.setAddProduct(false);
     await infos.setModifProduct(true);
     await infos.setIsDown(false);
-    infos.titleEditBox.current.focus();
   };
 
   return (
