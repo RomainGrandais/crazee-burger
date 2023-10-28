@@ -14,4 +14,6 @@ export default createContext({
   productSelected: {},
   setProductSelected: () => {},
   titleEditBox: {},
+  basketMenu: [],
+  setBasketMenu: () => {},
 });

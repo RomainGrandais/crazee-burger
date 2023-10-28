@@ -5,6 +5,7 @@ import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import { formatPrice } from "../../../../../utils/maths";
 import AdminContext from "../../../../../../context/AdminContext";
 import DeleteCard from "./DeleteCard";
+import AddProductContext from "../../../../../../context/AddProductContext";
 
 export default function Card({
   image,
@@ -15,9 +16,24 @@ export default function Card({
   isSelected,
 }) {
   const infos = useContext(AdminContext);
+  const { menu } = useContext(AddProductContext);
 
   const handleClick = (event) => {
     event.stopPropagation();
+    const basketMenuCopy = [...infos.basketMenu];
+    const productMenu = menu.find((product) => product.id == index);
+
+    if (basketMenuCopy.find((product) => product.id == index) == undefined) {
+      if (productMenu) {
+        console.log("produit pas dans le basket");
+        productMenu.quantity += 1;
+        basketMenuCopy.push(productMenu);
+        infos.setBasketMenu(basketMenuCopy);
+      }
+    } else {
+      basketMenuCopy.find((product) => product.id == index).quantity += 1;
+      infos.setBasketMenu(basketMenuCopy);
+    }
   };
 
   return (
