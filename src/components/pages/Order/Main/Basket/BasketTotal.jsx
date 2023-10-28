@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import AdminContext from "../../../../../context/AdminContext";
+import { formatPrice } from "../../../../utils/maths";
 
-export default function BasketTotal({ total }) {
+export default function BasketTotal() {
+  const { basketMenu } = useContext(AdminContext);
+  const total = basketMenu.reduce(
+    (acc, product) => acc + product.price * product.quantity,
+    0
+  );
   return (
     <BasketTotalStyled>
       <span className="text">Total</span>
-      <span className="price">{total}</span>
+      <span className="price">{formatPrice(total)}</span>
     </BasketTotalStyled>
   );
 }

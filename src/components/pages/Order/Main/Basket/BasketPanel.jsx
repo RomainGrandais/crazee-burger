@@ -11,7 +11,7 @@ export default function BasketPanel() {
 
   return (
     <BasketPanelStyled>
-      <BasketTotal total={"0.00$"} />
+      <BasketTotal />
       {basketMenu.length == 0 ? <BasketEmpty /> : <BasketList />}
       <div className="footer">CODE ❤️ AVEC ET REACT</div>
     </BasketPanelStyled>
