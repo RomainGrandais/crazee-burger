@@ -57,6 +57,8 @@ export default function Card({
 const CardStyled = styled.div`
   ${(props) => props.isActive && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
+  width: 240px;
+  height: 330px;
 
   .card {
     display: flex;
@@ -64,8 +66,7 @@ const CardStyled = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    width: 240px;
-    height: 330px;
+
     padding: 0px ${theme.spacing.md} ${theme.spacing.sm} ${theme.spacing.md};
     gap: 15px;
     border-radius: ${theme.borderRadius.extraRound};
