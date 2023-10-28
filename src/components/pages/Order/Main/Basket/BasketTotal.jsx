@@ -17,6 +17,7 @@ const BasketTotalStyled = styled.div`
   padding: 0px ${theme.spacing.sm} 0px ${theme.spacing.sm};
   align-items: center;
   height: 10%;
+  min-height: 10%;
   background-color: ${theme.colors.background_dark};
   color: ${theme.colors.primary};
   font-size: ${theme.fonts.P4};
