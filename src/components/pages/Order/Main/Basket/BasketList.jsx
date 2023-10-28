@@ -5,10 +5,21 @@ import AdminContext from "../../../../../context/AdminContext";
 import BasketCard from "./BasketCard";
 
 export default function BasketList() {
-  const { basketMenu } = useContext(AdminContext);
+  const infos = useContext(AdminContext);
+
+  const handleClick = async (idCard) => {
+    const selectedProcduct = infos.basketMenu.find(
+      (product) => product.id === idCard
+    );
+    await infos.setProductSelected(selectedProcduct);
+    await infos.setAddProduct(false);
+    await infos.setModifProduct(true);
+    await infos.setIsDown(false);
+  };
+
   return (
     <BasketListStyled>
-      {[...basketMenu].map((item, index) => (
+      {[...infos.basketMenu].map((item, index) => (
         <BasketCard
           key={item.id}
           image={item.imageSource ? item.imageSource : commingSoon}
@@ -16,6 +27,8 @@ export default function BasketList() {
           title={item.title}
           quantity={item.quantity}
           index={item.id}
+          onClick={() => handleClick(item.id)}
+          isSelected={item.id === infos.productSelected.id}
         />
       ))}
     </BasketListStyled>

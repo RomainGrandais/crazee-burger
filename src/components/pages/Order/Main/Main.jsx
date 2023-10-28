@@ -19,10 +19,20 @@ export default function Main() {
 
   const handleEdit = (productBeingEdited) => {
     const menuCopy = structuredClone(menu);
+    const menuBasketCopy = structuredClone(info.basketMenu);
     const indexOfProductToEdit = menuCopy.findIndex(
       (product) => product.id == productBeingEdited.id
     );
+    const indexOfProductBasketToEdit = menuBasketCopy.findIndex(
+      (product) => product.id == productBeingEdited.id
+    );
     menuCopy[indexOfProductToEdit] = productBeingEdited;
+    if (!indexOfProductBasketToEdit) {
+      const quantity = menuBasketCopy[indexOfProductBasketToEdit].quantity;
+      menuBasketCopy[indexOfProductBasketToEdit] = productBeingEdited;
+      menuBasketCopy[indexOfProductBasketToEdit].quantity = quantity;
+      info.setBasketMenu(menuBasketCopy);
+    }
     setMenu(menuCopy);
   };
 
