@@ -1,15 +1,12 @@
 import React, { useContext, useRef, useState } from "react";
 import styled from "styled-components";
-import { HiCursorClick } from "react-icons/hi";
 import { theme } from "../../../../../../../theme";
-import ModifProductNotSelect from "./ModifProductNotSelect";
 import AdminContext from "../../../../../../../context/AdminContext";
 import AddProductContext from "../../../../../../../context/AddProductContext";
 import { FaHamburger } from "react-icons/fa";
 import TextInput from "../../../../../../reusable-ui/TextInput";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuroSymbol } from "react-icons/md";
-import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 
 export default function ModifProductForm() {
   const { handleEdit } = useContext(AddProductContext);
