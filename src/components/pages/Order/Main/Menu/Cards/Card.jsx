@@ -21,11 +21,12 @@ export default function Card({
   const handleClick = (event) => {
     event.stopPropagation();
     const basketMenuCopy = [...infos.basketMenu];
-    const productMenu = menu.find((product) => product.id == index);
+    const productMenu = structuredClone(
+      menu.find((product) => product.id == index)
+    );
 
     if (basketMenuCopy.find((product) => product.id == index) == undefined) {
       if (productMenu) {
-        console.log("produit pas dans le basket");
         productMenu.quantity += 1;
         basketMenuCopy.push(productMenu);
         infos.setBasketMenu(basketMenuCopy);
